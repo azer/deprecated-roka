@@ -6,6 +6,8 @@
   var TaskSet = roka.async.taskset.TaskSet;
 
   var partial = roka.core.functional.partial;
+  var get_dir = roka.core.utils.get_dir;
+  var get_url = roka.core.utils.get_url;
   
   /**
    *
@@ -36,6 +38,21 @@
     {
       return events;
     });
+
+    /**
+     * The path application is located
+     * @member Application
+     */
+    var path = get_dir( get_url(2) );
+    this.__defineGetter__('path',function()
+    {
+      return path;
+    });
+    this.__defineSetter__('path',function(value)
+    {
+      path = value;
+    });
+    
 
     /**
      * The tasks which have to be completed to fire ready event of the application

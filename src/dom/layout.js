@@ -7,6 +7,8 @@
   var NotFoundError = roka.errors.NotFoundError;
 
   var partial = roka.core.functional.partial;
+  var get_dir = roka.core.utils.get_dir;
+  var get_url = roka.core.utils.get_url;
 
   /**
    * @author Azer Koculu <azerkoculu@gmail.com>
@@ -38,6 +40,20 @@
     this.__defineGetter__('events',function()
     { 
       return events; 
+    });
+
+    /**
+     * The path layout is located
+     * @member Layout
+     */
+    var path = get_dir( get_url(2) );
+    this.__defineGetter__('path',function()
+    {
+      return path;
+    });
+    this.__defineSetter__('path',function(value)
+    {
+      path = value;
     });
 
     /**
