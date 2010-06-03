@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../testrunner.xsl"?>
+<testcases>
+
+ <case>
+    <file src="async/observer.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="async/tasks.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="async/taskset.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="async/request.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="async/requestset.js" />
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+ <case>
+    <file src="core/utils.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/functional.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/oop.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/datetime.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/logging.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/exctype.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/list.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/dict.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="core/config.js" /> 
+    <dependency src='../../src/core/functional.js' />
+n    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+ <case document='../misc/catalog.html'>
+    <file src="dom/css.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="dom/utils.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="dom/layout.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+
+  <case>
+    <file src="dom/widget.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+
+  <case>
+    <file src="dom/widgetset.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="dom/application.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case display='true'>
+    <file src="dom/xsltlayout.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="dom/i18n.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="dom/xmlfragment.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+  <case>
+    <file src="dom/dependencyset.js" /> 
+    <dependency src='../../build/version/latest/roka1.0rc13.js' />
+</case>
+</testcases>

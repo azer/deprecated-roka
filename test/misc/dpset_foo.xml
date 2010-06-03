@@ -1,0 +1,9 @@
+<Dependencies>
+
+  <Module path='foobar.js' />
+  <Stylesheet path='foobar.css' />
+  <Widget path='../../helloworld/foo/bar/config.xml' />
+  <Application path='../../helloworld/foo/config.xml' />
+  <DependencySet path='../../helloworld/config.xml' />
+
+</Dependencies>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../testrunner.xsl"?>
+<testcases>
+  <case>
+    <file src="async/observer.js" /> 
+    <dependency src='../../src/init.js' />
+    <dependency src='../../src/core/utils.js' />
+    <dependency src='../../src/core/functional.js' />
+    <dependency src='../../src/core/oop.js' />
+    <dependency src='../../src/core/exctype.js' />
+    <dependency src='../../src/errors.js' />
+    <dependency src='../../src/async/observer.js' />
+  </case>
+  <case>
+    <file src="async/tasks.js" /> 
+    <dependency src='../../src/init.js' />
+    <dependency src='../../src/core/utils.js' />
+    <dependency src='../../src/core/functional.js' />
+    <dependency src='../../src/core/oop.js' />
+    <dependency src='../../src/core/exctype.js' />
+    <dependency src='../../src/errors.js' />
+    <dependency src='../../src/async/observer.js' />
+    <dependency src='../../src/core/dict.js' />
+    <dependency src='../../src/core/list.js' />
+    <dependency src='../../src/dom/css.js' />
+    <dependency src='../../src/dom/utils.js' />
+    <dependency src='../../src/async/task.js' />
+    <dependency src='../../src/async/taskset.js' />
+    <dependency src='../../src/async/tasks.js' />
+  </case>
+  <case>
+    <file src="async/taskset.js" /> 
+    <dependency src='../../src/init.js' />
+    <dependency src='../../src/core/utils.js' />
+    <dependency src='../../src/core/functional.js' />
+    <dependency src='../../src/core/oop.js' />
+    <dependency src='../../src/core/exctype.js' />
+    <dependency src='../../src/errors.js' />
+    <dependency src='../../src/async/observer.js' />
+    <dependency src='../../src/core/dict.js' />
+    <dependency src='../../src/core/list.js' />
+    <dependency src='../../src/dom/css.js' />
+    <dependency src='../../src/dom/utils.js' />
+    <dependency src='../../src/async/task.js' />
+    <dependency src='../../src/async/taskset.js' />
+    <dependency src='../../src/async/tasks.js' />
+  </case>
+  <case>
+    <file src="async/request.js" /> 
+    <dependency src='../../src/init.js' />
+    <dependency src='../../src/core/utils.js' />
+    <dependency src='../../src/core/functional.js' />
+    <dependency src='../../src/core/oop.js' />
+    <dependency src='../../src/core/exctype.js' />
+    <dependency src='../../src/errors.js' />
+    <dependency src='../../src/async/observer.js' />
+    <dependency src='../../src/core/dict.js' />
+    <dependency src='../../src/core/list.js' />
+    <dependency src='../../src/dom/css.js' />
+    <dependency src='../../src/dom/utils.js' />
+    <dependency src='../../src/dom/xmlfragment.js' />
+    <dependency src='../../src/async/task.js' />
+    <dependency src='../../src/async/xhrresponse.js' />
+    <dependency src='../../src/async/request.js' />
+  </case>
+  <case>
+    <file src="async/requestset.js" />
+    <dependency src='../../src/init.js' />
+    <dependency src='../../src/core/utils.js' />
+    <dependency src='../../src/core/functional.js' />
+    <dependency src='../../src/core/oop.js' />
+    <dependency src='../../src/core/exctype.js' />
+    <dependency src='../../src/errors.js' />
+    <dependency src='../../src/async/observer.js' />
+    <dependency src='../../src/core/dict.js' />
+    <dependency src='../../src/core/list.js' />
+    <dependency src='../../src/dom/css.js' />
+    <dependency src='../../src/dom/utils.js' />
+    <dependency src='../../src/dom/xmlfragment.js' />
+    <dependency src='../../src/async/task.js' />
+    <dependency src='../../src/async/taskset.js' />
+    <dependency src='../../src/async/tasks.js' />
+    <dependency src='../../src/async/xhrresponse.js' />
+    <dependency src='../../src/async/request.js' />
+    <dependency src='../../src/async/requestset.js' />
+  </case>
+</testcases>

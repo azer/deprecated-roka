@@ -1,0 +1,7 @@
+<Dependencies>
+
+  <Module path='foobar.js' />
+  <Stylesheet path='foobar.css' />
+  <DependencySet path='dpset_empty.xml' />
+
+</Dependencies>

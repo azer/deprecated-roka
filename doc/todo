@@ -1,0 +1,8 @@
+* xmldocument veya benzeri bisey
+* repr uygulanacak
+* Interface kontrollerinin kaldirildigi yerlerde isinstance kontrolu gerekli
+* exception browser'in konvensiyonuna destek versin
+* load tasklerinin tamamini temizle
+* document, xmldocument seperation
+* Dependency handler for applicantion
+* build app

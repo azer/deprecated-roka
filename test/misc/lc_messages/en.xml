@@ -1,0 +1,14 @@
+<messages lang="en">
+  <msg id='hworld'>
+    <text>Hello World</text>
+  </msg>
+  <msg id='mfest'>
+    <text>Of you the tale is told.</text>
+  </msg>
+  <msg id='title'>
+    <text>Title</text>
+  </msg>
+  <msg id='artist'>
+    <text>Artist</text>
+  </msg>
+</messages>

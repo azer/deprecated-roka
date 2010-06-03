@@ -1,0 +1,14 @@
+<messages lang="tr">
+  <msg id='hworld'>
+    <text>Merhaba Dunya</text>
+  </msg>
+  <msg id='mfest'>
+    <text>Anlatilan senin hikayendir.</text>
+  </msg>
+  <msg id='title'>
+    <text>Baslik</text>
+  </msg>
+  <msg id='artist'>
+    <text>Sanatci</text>
+  </msg>
+</messages>
