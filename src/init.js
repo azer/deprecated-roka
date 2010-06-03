@@ -26,4 +26,4 @@
     exports[pkg_name]={};
   }
 
-})( window.roka = {} );
+})( roka = {} );

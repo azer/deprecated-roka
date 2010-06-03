@@ -1,12 +1,15 @@
 var XSLTLayout = roka.dom.xsltlayout.XSLTLayout;
 var is_instance = roka.core.oop.is_instance;
 
+var path = roka.core.utils.get_dir( roka.core.utils.get_url(1) );
+
 var test_api = function()
 {
   var xl = new XSLTLayout();
   assert( is_instance(xl.subresources,roka.async.requestset.RequestSet) );
   assert( xl.subresources.length == 2);
   assert( xl.subresources.has('template') && xl.subresources.has('content') );
+  compare( xl.path, path );
 }
 
 var test_transform = function()
@@ -52,3 +55,14 @@ var test_refresh = function()
 }
 
 test_refresh.async = true;
+
+var test_path = function()
+{
+  var L = function()
+  {
+    XSLTLayout.prototype.constructor.call(this);
+    compare(this.path, path);
+  }
+  roka.core.oop.extend( L, XSLTLayout );
+
+}

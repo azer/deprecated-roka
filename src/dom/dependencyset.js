@@ -208,7 +208,7 @@
     {
       roka.trace(this,'importing module ',path);
 
-      var script = document.createElement('script');
+      var script = document.documentElement.hasAttribute('xmlns') && document.createElementNS(document.documentElement.getAttribute('xmlns'),'script') || document.createElement('script');
       script.setAttribute('type','text/javascript');
       script.setAttribute('src',path);
       script.async = true;

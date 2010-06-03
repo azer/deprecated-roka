@@ -208,4 +208,4 @@
     this.object = null;
   }
 
-})( window.roka.core.functional = {} );
+})( roka.core.functional = {} );

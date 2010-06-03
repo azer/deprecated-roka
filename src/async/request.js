@@ -228,4 +228,18 @@
     return roka.core.utils.repr('Request',this.id,{ url:this.url, state:this.state, status:this.status, load_state:this.load_state });
   }
 
+  /**
+   * @param url {String}
+   * @param callback {Function}
+   * @return {Request}
+   */
+  var get = exports.get = roka.async.get = function(url,callback)
+  {
+    var req = new Request();
+    req.url = url;
+    req.events.add_listener('load',callback);
+    req.send();
+    return req;
+  }
+
 })( roka.async.request = {} );

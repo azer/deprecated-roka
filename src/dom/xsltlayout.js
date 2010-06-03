@@ -10,6 +10,8 @@
   var partial = roka.core.functional.partial;
   var extend = roka.core.oop.extend;
   var superproto = roka.core.oop.superproto;
+  var get_dir = roka.core.utils.get_dir;
+  var get_url = roka.core.utils.get_url;
 
   /**
    * @author Azer Koculu <azerkoculu@gmail.com>
@@ -21,6 +23,8 @@
   var XSLTLayout = exports.XSLTLayout = function(widget)
   {
     superproto( XSLTLayout, this ).constructor.call(this,widget);
+
+    this.path = get_dir( get_url(2) );
 
     /**
      * @member XSLTLayout

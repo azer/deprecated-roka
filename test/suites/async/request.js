@@ -25,6 +25,17 @@ var test_params = function()
   req.send();
 }
 
+var test_shortcut = function()
+{
+  var robj = roka.async.get('../misc/text/foobar',function(req){
+    assert(robj == req);
+    compare(req._xhr_.responseText,'Hello World');
+    test_shortcut.result = true;
+  });
+}
+
+test_shortcut.async = true;
+
 var test_response = function()
 {
   var req = new Request();

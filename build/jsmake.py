@@ -14,6 +14,13 @@ from jsmin import jsmin as minify
 
 manifest = None
 
+def clean(content):
+  patterns = (
+    ( 'roka\.trace\(.*?\);?','' ),
+  )
+  for pattern, repl in patterns: content = sub(pattern,repl,content)
+  return content
+
 def load(path):
   return yaml( open( path ) )
 
@@ -39,4 +46,4 @@ def read(path):
 
 if __name__ == '__main__' and len(args)>1:
   manifest = load(args[1])
-  put(minify(process(merge(manifest))))
+  put(minify(clean(process(merge(manifest)))))

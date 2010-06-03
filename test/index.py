@@ -20,7 +20,7 @@ content = '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/x
 contentb = '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="../testrunner.xsl"?>\n<testcases>\n%s\n</testcases>'''%contentb
 
 indexb = open('./suites/indexb.xml','w')
-indexb.write(re.sub('</case>','<dependency src=\'../../build/version/latest/roka1.0rc13.js\' />\n</case>',contentb))
+indexb.write(re.sub('</case>','<dependency src=\'../../build/version/latest/roka1.0rc16.js\' />\n</case>',contentb))
 indexb.close()
 
 index = open('./suites/index.xml','w')
