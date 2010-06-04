@@ -107,9 +107,12 @@
 
   extend(TaskSet, Dict);
 
-  /**
-   * Start to observe new items
-   */
+  TaskSet.prototype.del = function(key)
+  {
+    this.unsubscribe(this.get(key));
+    superproto(TaskSet,this).del.call(this,key);
+  }
+
   TaskSet.prototype.set = function(key,task)
   {
     roka.trace(this,'setting new task','key:'+key,'task:',task);
@@ -118,28 +121,25 @@
       roka.trace(this,'fail',typeof task);
       throw new TypeError( 'Invalid task object' );
     }
+
+    this.has(key) && this.unsubscribe( this.get(key) );
     
     superproto(TaskSet,this).set.call(this,key,task);
-
     task.name = key;
-    task.events.add_listener('success',this._successCallback_);
-    task.events.add_listener('error',this._errorCallback_);
+    this.subscribe(task);
   }
 
-  TaskSet.prototype.del = function(key)
+  TaskSet.prototype.subscribe = function(task) 
   {
-    var task = this.get(key); 
-    if( task.events.subjects.success.observers.indexOf( this._successCallback_ ) > -1 )
-    {
-      task.events.remove_listener('success',this._successCallback_);
-    }
-    
-    if( task.events.subjects.error.observers.indexOf( this._errorCallback_ ) > -1 )
-    {
-      task.events.remove_listener('error',this._errorCallback_);
-    }
-    superproto(TaskSet,this).del.call(this,key);
-  }
+    task.events.subjects.success.observers.indexOf( this._successCallback_ ) == -1 && task.events.add_listener('success',this._successCallback_);
+    task.events.subjects.error.observers.indexOf( this._errorCallback_ ) == -1 && task.events.add_listener('error',this._errorCallback_);
+  };
+
+  TaskSet.prototype.unsubscribe = function(task) 
+  {
+    task.events.subjects.success.observers.indexOf( this._successCallback_ ) > -1 && task.events.remove_listener('success',this._successCallback_);
+    task.events.subjects.error.observers.indexOf( this._errorCallback_ ) > -1 && task.events.remove_listener('error',this._errorCallback_);
+  };
 
   TaskSet.prototype.toString = function()
   {

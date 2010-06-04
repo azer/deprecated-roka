@@ -17,7 +17,7 @@
     var args = Array.prototype.map.call(arguments,function(el){
       return ( el && el.hasOwnProperty('toString') ) && el.toString() || el;
     });
-    ( console && console.log ) && console.log( 'roka v'+VERSION+' - '+ args.join(', ') );
+    typeof console!='undefined' && console.log( 'roka v'+VERSION+' - '+ args.join(', ') );
   }
 
   for(var i=-1,len=LIBRARIES.length;++i<len;)

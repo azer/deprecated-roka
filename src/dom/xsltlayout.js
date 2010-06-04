@@ -6,7 +6,7 @@
   var RequestSet = roka.async.requestset.RequestSet;
   var Request = roka.async.request.Request;
 
-  var empty_xml_document = roka.dom.utils.empty_xml_document;
+  var apply_stylesheet = roka.dom.utils.apply_stylesheet;
   var partial = roka.core.functional.partial;
   var extend = roka.core.oop.extend;
   var superproto = roka.core.oop.superproto;
@@ -71,6 +71,7 @@
     this.events.create('transform');
     this.tasks.set('build',new TaskSet());
     this.tasks.get('build').set('transform',new ObservationTask( this.events.subjects.transform ));
+    this.events.subjects.build = this.tasks.get('build').events.subjects.success;
 
     // load task
     this.tasks.set('load',new TaskSet());
@@ -108,12 +109,7 @@
   XSLTLayout.prototype.transform = function()
   {
     roka.trace(this,'transforming..');
-
-    var xslt_processor = new XSLTProcessor();
-    xslt_processor.importStylesheet(this.template);
-    var fragment = xslt_processor.transformToFragment(this.content || empty_xml_document,document);
-    this.output.content = fragment.firstChild; 
-
+    this.output.content = apply_stylesheet( this.template, this.content  );
     this.events.fire('transform');
   }
 

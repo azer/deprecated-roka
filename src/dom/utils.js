@@ -79,6 +79,20 @@
   }
 
   /**
+   * Transform given stylesheet and content documents
+   * @param stylesheet {Document}
+   * @param content {Document}
+   * @param doc {Document} Optional
+   */
+  var apply_stylesheet = exports.apply_stylesheet = function(stylesheet,content,doc)
+  {
+    var xp = new XSLTProcessor();
+    xp.importStylesheet(stylesheet);
+    return xp.transformToFragment(content || exports.empty_xml_document,doc || window.document).firstChild;
+  }
+  
+
+  /**
    * Create a new, extended element
    *
    * @param tag {String}
@@ -94,7 +108,7 @@
   /**
    * Empty XML Document
    */
-  var empty_xml_str = exports.empty_xml_str = '<roka/>';
+  var empty_xml_str = exports.empty_xml_str = '<EmptyDocument />';
   var empty_xml_doc = null;
   exports.__defineGetter__('empty_xml_document',function()
   {

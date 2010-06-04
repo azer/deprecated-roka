@@ -109,7 +109,6 @@
 
       ind_ctx > -1 && ( args[ind_ctx] = ctx );
 
-
       if( is_array(ctx) )
       {
         ind_item == -1 && ( ind_item = args.push( each.ITEM )-1 );

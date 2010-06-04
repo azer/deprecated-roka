@@ -4,6 +4,38 @@ var ObservationTask = roka.async.tasks.ObservationTask;
 var DOMTask = roka.async.tasks.DOMTask; 
 var Subject = roka.async.observer.Subject; 
 
+
+var test_subscription = function()
+{
+  var t1 = new Task();
+  var t2 = new Task();
+  var ts = new TaskSet();
+
+  ts.subscribe(t1);  
+  ts.subscribe(t1);  
+  compare( t1.events.subjects.success.observers.indexOf( ts._successCallback_ ), 0 );
+  compare( t1.events.subjects.error.observers.indexOf( ts._errorCallback_ ), 0 );
+
+  ts.unsubscribe(t1);
+  compare( t1.events.subjects.success.observers.indexOf( ts._successcallback_ ), -1 );
+  compare( t1.events.subjects.error.observers.indexOf( ts._errorcallback_ ), -1 );
+
+  ts.set( 't', t1 );
+  compare( t1.events.subjects.success.observers.length, 1 );
+  compare( t1.events.subjects.success.observers.indexOf( ts._successCallback_ ), 0 );
+  compare( t1.events.subjects.error.observers.length, 1 );
+  compare( t1.events.subjects.error.observers.indexOf( ts._errorCallback_ ), 0 );
+
+  ts.set( 't', t2 );
+  compare( t1.events.subjects.success.observers.indexOf( ts._successcallback_ ), -1 );
+  compare( t1.events.subjects.error.observers.indexOf( ts._errorcallback_ ), -1 );
+  compare( t2.events.subjects.success.observers.length, 1 );
+  compare( t2.events.subjects.success.observers.indexOf( ts._successCallback_ ), 0 );
+  compare( t2.events.subjects.error.observers.length, 1 );
+  compare( t2.events.subjects.error.observers.indexOf( ts._errorCallback_ ), 0 );
+}
+
+
 var test_err = function()
 {
   var ts = new TaskSet();

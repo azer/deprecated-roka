@@ -9,8 +9,8 @@
     webkit:
     {
       test:/^\w*Error\:?$/,
-      filename:/([\w_\?\#\=\.\/:]+)\:\d+\:\d+$/,
-      lineno:/\:(\d+)\:\d+$/,
+      filename:/([\w_\?\#\=\.\/:]+)\:\d+\:\d+\)?$/,
+      lineno:/\:(\d+)\:\d+\)?$/,
       crop:3,
     },
     gecko:

@@ -4,8 +4,8 @@ dir: version/%(vno)s
 dict: 
   vno: 1.0 # Version Number
   vstage: rc # Version Stage
-  vname: Alexandros Grigoropoulos # Version Name
-  vbuild: 16  # Build Number
+  vname: (Alexandros Grigoropoulos) # Version Name
+  vbuild: 17  # Build Number
   debug: 'false' # Debug Mode
 
 replacements:

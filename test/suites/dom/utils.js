@@ -14,6 +14,7 @@ var remove_event_listener = roka.dom.utils.remove_event_listener;
 var select = roka.dom.utils.select;
 var setattr = roka.dom.utils.setattr;
 var parse = roka.dom.utils.parse;
+var apply_stylesheet = roka.dom.utils.apply_stylesheet;
 
 var each = roka.core.functional.each;
 var chain = roka.core.functional.chain;
@@ -82,7 +83,7 @@ var test_empty_xml_doc = function()
 {
   var ed = roka.dom.utils.empty_xml_document;
   assert(ed.childNodes.length==1);
-  assert(ed.childNodes[0].nodeName=='roka')
+  assert(ed.childNodes[0].nodeName=='EmptyDocument')
 }
 
 var test_getattr = function()
@@ -132,4 +133,33 @@ var test_setattr = function()
   var el = xmldoc.createElement('foo');
   setattr( el, 'foo', 'bar' );
   assert( el.hasAttribute('foo','bar') );
+}
+
+var test_applystylesheet = function()
+{
+
+  var stylesheet = parse('<?xml version="1.0" encoding="UTF-8"?>\
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">\
+  <xsl:template match="/">\
+    <div class="messages">\
+      <xsl:for-each select="messages/message">\
+        <div class="message">\
+          <xsl:value-of select="text()" />\
+        </div>\
+      </xsl:for-each>\
+    </div>\
+  </xsl:template>\
+</xsl:stylesheet>');
+
+  var l = apply_stylesheet( stylesheet, xmldoc );
+
+  compare( l.className, 'messages' );
+  compare( l.childNodes.length, 1 );
+  compare( l.firstChild.textContent, 'Hello World' );
+
+  var le = apply_stylesheet( stylesheet );
+  compare( le.className, 'messages' );
+  compare( le.childNodes.length, 0 );
+
+
 }
