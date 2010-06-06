@@ -5,7 +5,7 @@ dict:
   vno: 1.0 # Version Number
   vstage: rc # Version Stage
   vname: (Alexandros Grigoropoulos) # Version Name
-  vbuild: 17  # Build Number
+  vbuild: 18  # Build Number
   debug: 'false' # Debug Mode
 
 replacements:

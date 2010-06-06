@@ -5,7 +5,6 @@
   var SubjectSet = roka.async.observer.SubjectSet;
   var get_url = roka.core.utils.get_url;
   var get_dir = roka.core.utils.get_dir;
-  var extends = roka.core.oop.extend;
   var superproto = roka.core.oop.superproto;
 
   /**
@@ -21,6 +20,23 @@
     superproto(Config,this).constructor.call( this );
 
     /**
+     * @member Config
+     */
+    var events = new SubjectSet();
+    this.__defineGetter__('events',function()
+    {
+      return events;
+    });
+
+    /**
+     * @member Config
+     */
+    this.__defineGetter__('document',function()
+    {
+      return request.response.xml;
+    });
+
+    /**
      * Request object to fetch document 
      * @member Config
      */
@@ -32,17 +48,7 @@
 
     request._xhr_.overrideMimeType('text/xml');
     request.url = get_dir( get_url(2) )+'/config.xml';
-
-    /**
-     * @member Config
-     */
-    var events = new SubjectSet();
     events.subjects.load = request.events.subjects.load;
-    this.__defineGetter__('events',function()
-    {
-      return events;
-    });
-
   }
 
   /**
@@ -62,7 +68,7 @@
     var res = this.request.response.xml.query('//'+key+'/text()');
     if( res.length == 0 )
     {
-      throw new NotFoundError('Could not found any configuration matching given key '+key);
+      throw new NotFoundError('Could not found any configuration matching with given key '+key);
     }
     return res[0].nodeValue;
   };
