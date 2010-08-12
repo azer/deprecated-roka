@@ -2,7 +2,13 @@ var Widget = roka.dom.widget.Widget;
 var Layout = roka.dom.layout.Layout;
 var is_instance = roka.core.oop.is_instance;
 
-var path = roka.core.utils.get_dir( roka.core.utils.get_url(1) );
+var jscore = /webkit/i.test(navigator.userAgent)&&!(new Error()).hasOwnProperty('stack');
+var path =  !jscore && roka.core.utils.get_dir( roka.core.utils.get_url(1) ) || '';
+
+if(jscore=='')
+{
+  log('Could not find working path');
+}
 
 var test_api = function()
 {

@@ -43,7 +43,7 @@
      * The path application is located
      * @member Application
      */
-    var path = get_dir( get_url(2) );
+    var path = get_dir( get_url(2) || '' );
     this.__defineGetter__('path',function()
     {
       return path;

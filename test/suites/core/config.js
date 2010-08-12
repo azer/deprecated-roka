@@ -3,7 +3,8 @@ var Config = roka.core.config.Config;
 var test_url = function()
 {
   var c = new Config();
-  compare( c.request.url , '/projects/roka/test/suites/core/config.xml' );
+  c.url = 'config.xml';
+  compare( c.request.url , 'config.xml' );
 }
 
 var test_load = function()

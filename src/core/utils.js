@@ -49,11 +49,9 @@
     }
     catch(excinfo)
     {
-      stack = excinfo.stack.match(/\w+\:\/\/[\w\.\/\-]+/g);
-    }
-    if(stack.length<2)
-    {
-      throw new Error('Stack hasn\'t enough information to determine URL of the called function');
+      if( !excinfo.stack )
+        return null;
+      stack = excinfo.stack.match(/\w+\:\/\/[\w\.\/\-\:]+/g);
     }
     return stack[index];
   }

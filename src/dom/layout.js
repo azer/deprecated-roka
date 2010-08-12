@@ -46,7 +46,7 @@
      * The path layout is located
      * @member Layout
      */
-    var path = get_dir( get_url(2) );
+    var path = get_dir( get_url(2) || '' );
     this.__defineGetter__('path',function()
     {
       return path;

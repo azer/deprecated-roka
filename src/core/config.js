@@ -5,7 +5,6 @@
   var SubjectSet = roka.async.observer.SubjectSet;
   var get_url = roka.core.utils.get_url;
   var get_dir = roka.core.utils.get_dir;
-  var extends = roka.core.oop.extend;
   var superproto = roka.core.oop.superproto;
 
   /**
@@ -31,7 +30,6 @@
     });
 
     request._xhr_.overrideMimeType('text/xml');
-    request.url = get_dir( get_url(2) )+'/config.xml';
 
     /**
      * @member Config
@@ -41,6 +39,18 @@
     this.__defineGetter__('events',function()
     {
       return events;
+    });
+
+    /**
+     * @member Config
+     */
+    this.__defineGetter__('url',function()
+    {
+      return request.url;
+    });
+    this.__defineSetter__('url',function(value)
+    {
+      request.url = value;
     });
 
   }

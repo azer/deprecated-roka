@@ -1,7 +1,13 @@
 var XSLTLayout = roka.dom.xsltlayout.XSLTLayout;
 var is_instance = roka.core.oop.is_instance;
 
-var path = roka.core.utils.get_dir( roka.core.utils.get_url(1) );
+var jscore = /webkit/i.test(navigator.userAgent)&&!(new Error()).hasOwnProperty('stack');
+var path =  !jscore && roka.core.utils.get_dir( roka.core.utils.get_url(1) ) || '';
+
+if(jscore=='')
+{
+  log('Could not find working path');
+}
 
 var test_api = function()
 {
@@ -32,7 +38,7 @@ test_transform.async = true;
 
 var test_refresh = function()
 {
-  var l = window.parent.l = new XSLTLayout();
+  var l = new XSLTLayout();
   l.subresources.get('template').url = '../misc/layout/picture.xsl';
   l.subresources.get('content').url = '../misc/layout/picture.xml';
 

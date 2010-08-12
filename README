@@ -1,1 +1,9 @@
-doc/readme
+This is the source code repository for Roka Javascript Framework v1.x
+including these directories:
+  
+  * build: The built files generated from source code
+  * doc: Necessary documents such as readme, license, changelog..
+  * src: The directory containing source code.
+  * test: Consists of a test runner and test suites
+
+vim: tw=75

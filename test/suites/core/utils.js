@@ -3,6 +3,8 @@ var ljust = roka.core.utils.ljust;
 var repr = roka.core.utils.repr;
 var is_array = roka.core.utils.is_array;
 
+var jscore = /webkit/i.test(navigator.userAgent)&&!(new Error()).hasOwnProperty('stack');
+
 var test_format = function(){
   compare( 
     format('roka %(version)s',roka.env),
@@ -35,6 +37,7 @@ var test_ljust = function(){
 
 var test_geturl = function()
 {
+  if(jscore) return;
   assert( roka.core.utils.get_url().indexOf( '/roka/test/suites/core/utils.js' ) );
 }
 
