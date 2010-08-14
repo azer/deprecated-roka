@@ -6,7 +6,7 @@
 
   var stackdict = exports.stackdict =
   {
-    webkit:
+    v8:
     {
       test:/^\w*Error\:?$/,
       filename:/([\w_\?\#\=\.\/:]+)\:\d+\:\d+\)?$/,
@@ -39,7 +39,8 @@
     this.lineno = 0;
     this.stack = null;
 
-    var stack, flinf;
+
+    var stackrows, flinf;
 
     try 
     {
@@ -47,17 +48,27 @@
     } 
     catch(exc)
     {
-      stack = exc.stack.split('\n');
+      if( exc.hasOwnProperty('stack') )
+      {
+        this.stack = exc.stack;
+        stackrows = exc.stack.split('\n');
+      }
+      else 
+      {
+        this.message = exc.message;
+        this.name = exc.name;
+        return;
+      }
     }
 
     for(var engname in stackdict)
     {
       var eng = stackdict[ engname ];
-      if( eng.test.test( stack[0] ) )
+      if( eng.test.test( stackrows[0] ) )
       {
-        stack = stack.slice( eng.crop );
-        this.filename = stack[0].match( eng.filename )[1];
-        this.lineno = stack[0].match( eng.lineno )[1];
+        stackrows = stackrows.slice( eng.crop );
+        this.filename = stackrows[0].match( eng.filename )[1];
+        this.lineno = stackrows[0].match( eng.lineno )[1];
       }
     }
 

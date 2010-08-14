@@ -24,7 +24,7 @@
   {
     superproto( XSLTLayout, this ).constructor.call(this,widget);
 
-    this.path = get_dir( get_url(2) );
+    this.path = get_dir( get_url(2) || '' );
 
     /**
      * @member XSLTLayout

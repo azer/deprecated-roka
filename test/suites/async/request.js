@@ -44,7 +44,7 @@ var test_response = function()
   {
     try
     {
-      compare( request.response.text, '<dest>Havana</dest>\n' );
+      assert( request.response.text.match('<dest>Havana</dest>\n') );
       compare( request.response.xml.query('//dest/text()')[0].nodeValue,  'Havana' );
       compare( request.response.xml.select('dest')[0].textContent,  'Havana' );
 
@@ -52,7 +52,7 @@ var test_response = function()
     } 
     catch(exc)
     {
-      log('\nERROR: '+exc.message,'\n',exc.stack);
+      log('\nERROR: '+exc.message,'\n',exc.stack,'\n',exc.sourceURL);
     }
   });
   req.send();

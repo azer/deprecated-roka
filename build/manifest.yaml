@@ -4,8 +4,8 @@ dir: version/%(vno)s
 dict: 
   vno: 1.0 # Version Number
   vstage: rc # Version Stage
-  vname: (Alexandros Grigoropoulos) # Version Name
-  vbuild: 18  # Build Number
+  vname: (Alexis) # Version Name, http://google.com/search?q=Alexandros Grigoropoulos
+  vbuild: 19  # Build Number
   debug: 'false' # Debug Mode
 
 replacements:
@@ -35,7 +35,6 @@ files:
   - ../src/async/request.js 
   - ../src/async/requestset.js 
   - ../src/core/config.js 
-  - ../src/dom/dependencyset.js
   - ../src/dom/layout.js 
   - ../src/dom/widget.js 
   - ../src/dom/widgetset.js 

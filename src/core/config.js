@@ -20,23 +20,6 @@
     superproto(Config,this).constructor.call( this );
 
     /**
-     * @member Config
-     */
-    var events = new SubjectSet();
-    this.__defineGetter__('events',function()
-    {
-      return events;
-    });
-
-    /**
-     * @member Config
-     */
-    this.__defineGetter__('document',function()
-    {
-      return request.response.xml;
-    });
-
-    /**
      * Request object to fetch document 
      * @member Config
      */
@@ -47,8 +30,29 @@
     });
 
     request._xhr_.overrideMimeType('text/xml');
-    request.url = get_dir( get_url(2) )+'/config.xml';
+
+    /**
+     * @member Config
+     */
+    var events = new SubjectSet();
     events.subjects.load = request.events.subjects.load;
+    this.__defineGetter__('events',function()
+    {
+      return events;
+    });
+
+    /**
+     * @member Config
+     */
+    this.__defineGetter__('url',function()
+    {
+      return request.url;
+    });
+    this.__defineSetter__('url',function(value)
+    {
+      request.url = value;
+    });
+
   }
 
   /**

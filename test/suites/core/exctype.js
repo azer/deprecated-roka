@@ -7,24 +7,28 @@ var init = function(){
 
 var test_exc_classification = function(){
 
-  var catch_ind = false;
+  var catchfl = false;
 
   try {
     var colors = ['yellow','red'];
     if(!colors[3])
       throw new IndexError( 'Invalid index' );
   } catch(exc){
-    
-    assert(/suites\/core\/exctype\.js/.test(exc.filename));
-    compare( exc.lineno, 15 );
-    compare( exc.message, 'Invalid index');
-    assert(exc.constructor==IndexError);
-
-    catch_ind = true;
-
+    if( exc.stack==null  )
+    {
+      log('browser doesn\'t provide stack information');
+    }
+    else
+    {
+      assert(/suites\/core\/exctype\.js/.test(exc.filename));
+      compare( exc.lineno, 15 );
+      compare( exc.message, 'Invalid index');
+      assert(exc.constructor==IndexError);
+    }
+    catchfl = true;
   }
 
-  assert( catch_ind  );
+  assert( catchfl );
 
 }
 
