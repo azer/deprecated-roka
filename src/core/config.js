@@ -72,7 +72,7 @@
     var res = this.request.response.xml.query('//'+key+'/text()');
     if( res.length == 0 )
     {
-      throw new NotFoundError('Could not found any configuration matching given key '+key);
+      throw new NotFoundError('Could not found any configuration matching with given key '+key);
     }
     return res[0].nodeValue;
   };
