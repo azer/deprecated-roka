@@ -1,8 +1,7 @@
 Roka is a new javascript framework targeting modern web/javascript engines.
-Currently it's under under restruction to take advantage of wonderful
-designed specs of CommonJS and ECMAScript 5. It's currently waiting for
-release of my new tool, JSBuild, which provides to build CommonJS
-packages/modules for web.
+Currently it's under restruction to take advantage of wonderful designed
+specs of CommonJS and ECMAScript 5 and is awaiting release of my new tool,
+JSBuild, providing building CommonJS packages/modules for web usage.
 
 This is the source code repository for Roka Javascript Framework v1.x
 including these directories:
